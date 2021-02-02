@@ -4,6 +4,14 @@ let resultsArray = [];
 let favorites = {};
 
 class ShowContent {
+  constructor() {
+    this._init();
+  }
+
+  _init() {
+    this._addEvent();
+  }
+
   _createLinkElement(result) {
     const link = document.createElement('a');
     link.href = result.hdurl;
@@ -116,6 +124,7 @@ class ShowContent {
   }
 
   updateDOM(page) {
+    console.log(page);
     // Get Favorites from localStorage
     if (localStorage.getItem('nasaFavorites')) {
       favorites = JSON.parse(localStorage.getItem('nasaFavorites'));
@@ -147,5 +156,10 @@ class ShowContent {
       resultsNav.classList.add('hidden');
       favoritesNav.classList.remove('hidden');
     }
+  }
+
+  _addEvent() {
+    const favoritesBtn = document.querySelector('#favorites');
+    favoritesBtn.addEventListener('click', () => this.updateDOM());
   }
 }

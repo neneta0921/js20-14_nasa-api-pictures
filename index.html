@@ -23,13 +23,13 @@
         <span class="background"></span>
         <!-- Results Nav -->
         <span class="navigation-items" id="resultsNav">
-          <button onclick="updateDOM('favorites')">Favorites</button>
+          <button id="favorites">Favorites</button>
           <h3>&nbsp;&nbsp;&nbsp;・&nbsp;&nbsp;&nbsp;</h3>
-          <button onclick="getNasaPictures()">Load More</button>
+          <button id="result-more">Load More</button>
         </span>
         <!-- Favorites Nav -->
         <span class="navigation-items hidden" id="favoritesNav">
-          <button onclick="getNasaPictures()">Load More Nasa Images</button>
+          <button id="favorite-more">Load More Nasa Images</button>
         </span>
       </div>
       <!-- Images Container -->
@@ -39,8 +39,8 @@
     <div class="save-confirmed" hidden>
       <span class="added">ADDED</span>
     </div>
+
     <!-- Script -->
-    <!-- <script src="js/libraries/switch-navigation.js"></script> -->
     <script src="js/libraries/show-content.js"></script>
     <script src="js/libraries/get-image.js"></script>
     <script src="js/libraries/handle-favorite.js"></script>

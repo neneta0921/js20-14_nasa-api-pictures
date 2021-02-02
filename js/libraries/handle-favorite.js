@@ -1,28 +1,18 @@
 class HandleFavorite {
-  constructor(updateDOM) {
-    this.updateDOM = updateDOM;
-  }
-
-  _showToast(time) {
-    const saveConfirmed = document.querySelector('.save-confirmed');
-
-    // Show Save Confirmation for 2 seconds
-    saveConfirmed.hidden = false;
-    setTimeout(() => {
-      saveConfirmed.hidden = true;
-    }, time);
-  }
-
   // Add result to Favorites
   saveFavorite(itemUrl) {
+    const saveConfirmed = document.querySelector('.save-confirmed');
+
     // Loop through Results Array to select Favorite
     resultsArray.forEach((item) => {
-      // if (result.url.includes(`${itemUrl}`)) {
       if (item.url.includes(itemUrl) && !favorites[itemUrl]) {
         favorites[itemUrl] = item;
 
         // Show Save Confirmation for 2 seconds
-        this._showToast(2000);
+        saveConfirmed.hidden = false;
+        setTimeout(() => {
+          saveConfirmed.hidden = true;
+        }, 2000);
 
         // Set Favorites in localStorage
         localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
@@ -39,7 +29,7 @@ class HandleFavorite {
       localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
 
       // Reload Page
-      this.updateDOM('favorites');
+      updateDOM('favorites');
     }
   }
 }

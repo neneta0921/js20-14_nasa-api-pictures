@@ -1,6 +1,10 @@
 class GetImage {
-  constructor(updateDOM) {
-    this.updateDOM = updateDOM;
+  constructor() {
+    this._init();
+  }
+
+  _init() {
+    this._addEvent();
   }
 
   _getApiUrl(count) {
@@ -10,8 +14,9 @@ class GetImage {
   }
 
   // Get Images from NASA API
-  async getNasaPictures(count) {
+  async getNasaPictures() {
     // NASA API
+    const count = 5;
     const apiUrl = this._getApiUrl(count);
 
     // show loader
@@ -20,9 +25,18 @@ class GetImage {
     try {
       const response = await fetch(apiUrl);
       resultsArray = await response.json();
-      this.updateDOM('result');
+      updateDOM('result');
     } catch (error) {
       console.log(error);
     }
+  }
+
+  _addEvent() {
+    const resultButton = document.querySelector('#result-more');
+    const favoriteButton = document.querySelector('#favorite-more');
+    resultButton.addEventListener('click', () => this.getNasaPictures());
+    favoriteButton.addEventListener('click', () => {
+      this.getNasaPictures();
+    });
   }
 }
