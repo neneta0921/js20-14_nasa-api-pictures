@@ -11,6 +11,16 @@ body {
   line-height: 1.8rem;
 }
 
+.clickable {
+  color: dodgerblue;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: darkblue;
+  }
+}
+
 .container {
   position: relative;
   display: flex;

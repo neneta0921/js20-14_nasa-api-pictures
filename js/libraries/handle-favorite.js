@@ -1,4 +1,8 @@
 class HandleFavorite {
+  constructor(updateDOM) {
+    this.updateDOM = updateDOM;
+  }
+
   _showToast(time) {
     const saveConfirmed = document.querySelector('.save-confirmed');
 
@@ -35,7 +39,7 @@ class HandleFavorite {
       localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
 
       // Reload Page
-      updateDOM('favorites');
+      this.updateDOM('favorites');
     }
   }
 }

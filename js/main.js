@@ -1,6 +1,10 @@
-const nav = new SwitchNavigation();
-const getImage = new GetImage();
-const handleFavorite = new HandleFavorite();
+// const nav = new SwitchNavigation();
+const showContent = new ShowContent();
+const getImage = new GetImage(() => showContent.updateDOM());
+const handleFavorite = new HandleFavorite(() => showContent.updateDOM());
+
+const saveFavorite = () => handleFavorite.saveFavorite();
+const removeFavorite = () => handleFavorite.removeFavorite();
 
 // On Load
-getNasaPictures();
+getImage.getNasaPictures(5);

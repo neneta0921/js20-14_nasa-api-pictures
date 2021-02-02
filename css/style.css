@@ -12,6 +12,19 @@ body {
   line-height: 1.8rem;
 }
 
+.clickable {
+  color: dodgerblue;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.clickable:hover {
+  color: darkblue;
+}
+
 .container {
   position: relative;
   display: -webkit-box;

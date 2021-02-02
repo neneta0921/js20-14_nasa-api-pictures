@@ -1,4 +1,8 @@
 class GetImage {
+  constructor(updateDOM) {
+    this.updateDOM = updateDOM;
+  }
+
   _getApiUrl(count) {
     const apiKey = 'DEMO_KEY';
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${count}`;
@@ -16,7 +20,7 @@ class GetImage {
     try {
       const response = await fetch(apiUrl);
       resultsArray = await response.json();
-      updateDOM('result');
+      this.updateDOM('result');
     } catch (error) {
       console.log(error);
     }
