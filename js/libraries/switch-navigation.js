@@ -1,8 +1,4 @@
-const imagesContainer = document.querySelector('.images-container');
 const loader = document.querySelector('.loader');
-
-let resultsArray = [];
-let favorites = {};
 
 class SwitchNavigation {
   switchNavigation(page) {

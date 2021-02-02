@@ -1,3 +1,7 @@
+const imagesContainer = document.querySelector('.images-container');
+let resultsArray = [];
+let favorites = {};
+
 function createDOMNodes(page) {
   const currentArray = page === 'result' ? resultsArray : Object.values(favorites);
   currentArray.forEach((result) => {
